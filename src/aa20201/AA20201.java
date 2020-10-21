@@ -46,9 +46,10 @@ public class AA20201 {
 //              tiempomedio[j] = (int) b3.gettTotal();
 //        }
 
-       int n = 10000;
+       int n = 5000;
         int[] aux;
         double[] tiempos = new double[n];
+        double[] tiempos2 = new double[n];
         Burbuja b = new Burbuja();
         // complejidad algoritmica Sumatoria ( Generar los datos aleatorios + busqueda + almacenar el tiempo)
         for (int j = 0; j < n; j++){
@@ -57,10 +58,22 @@ public class AA20201 {
             tiempos[j] = (int) b.gettTotal();
             //System.out.println("j= "+j+" :"+tiempos[j]);
         }  
-      GraficaTiempo miGraficador = new GraficaTiempo(tiempos, "Peor");
+                Burbuja b1 = new Burbuja();
+
+        for (int j = 0; j < n; j++){
+            aux = GeneradorDatos.generarArregloIntM_m(j,1000);
+            b1.ordenar(aux);
+            tiempos2[j] = (int) b1.gettTotal();
+            //System.out.println("j= "+j+" :"+tiempos[j]);
+        }  
+      GraficaTiempo miGraficador = new GraficaTiempo(tiempos, "Caos Medio");
         miGraficador.pack();
         RefineryUtilities.centerFrameOnScreen(miGraficador);
         miGraficador.setVisible(true);
+         GraficaTiempo miGraficador2 = new GraficaTiempo(tiempos2, "Mayor menor");
+        miGraficador2.pack();
+        RefineryUtilities.centerFrameOnScreen(miGraficador2);
+        miGraficador2.setVisible(true);
        
        
     }
