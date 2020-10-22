@@ -67,8 +67,9 @@ public class AA20201 {
             //System.out.println("j= "+j+" :"+tiempos[j]);
         }  
       GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos");
+              g1.agregarSerie(tiempos, "tiempos caso medio");
+
         g1.agregarSerie(tiempos2, "tiempos peor caso");
-        g1.agregarSerie(tiempos, "tiempos caso medio");
         g1.creaYmuestraGrafica();
         /* GraficaTiempo miGraficador2 = new GraficaTiempo(tiempos2, "Mayor menor");
         miGraficador2.pack();

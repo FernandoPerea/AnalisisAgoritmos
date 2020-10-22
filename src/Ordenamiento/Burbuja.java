@@ -56,6 +56,7 @@ public class Burbuja {
         {
           if(datos[j+1] < datos[j])
           {
+
             auxiliar = datos[j+1];
             datos[j+1] = datos[j];
             datos[j] = auxiliar;
@@ -68,7 +69,6 @@ public class Burbuja {
   
       int auxiliar; //1
       int[] arregloOrdenado; //1
-      
       for(int i = 0; i < datos.length-1; i++) //3n
       {
         for(int j = 0;j < datos.length-1;j++) //3(n(n)  ->  7n^2
