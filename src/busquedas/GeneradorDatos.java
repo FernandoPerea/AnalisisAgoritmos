@@ -6,6 +6,7 @@
 package busquedas;
 
 import Ordenamiento.Burbuja;
+import Ordenamiento.InsertSort;
 import java.util.Random;
 
 /**
@@ -95,7 +96,21 @@ public class GeneradorDatos {
         
         return arreglox;
     }
-      
+            public static int[] generarArregloIntM_mwIS(int n, int bound){
+        int[] arreglo = new int[n];
+        Random ran = new Random();
+     
+        for(int y=0; y < n; y++){
+            arreglo[y] = ran.nextInt(bound);
+        }
+        InsertSort b = new InsertSort();
+          
+        int[] arreglox = new int[n];
+       
+        arreglox = b.ordenarDatosM_m(arreglo);
+        
+        return arreglox;
+    }
        public static int[] generarArregloInt(int n, int bound){
         int[] arreglo = new int[n];
         Random ran = new Random();

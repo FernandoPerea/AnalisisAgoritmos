@@ -7,6 +7,7 @@ package aa20201;
 
 import Grafcas.GraficaTiempo;
 import Ordenamiento.Burbuja;
+import Ordenamiento.InsertSort;
 import busquedas.BusquedaSecuencial;
 import busquedas.Busquedas;
 import busquedas.GeneradorDatos;
@@ -58,18 +59,17 @@ public class AA20201 {
             tiempos[j] = (int) b.gettTotal();
             //System.out.println("j= "+j+" :"+tiempos[j]);
         }  
-                Burbuja b1 = new Burbuja();
+                InsertSort b1 = new InsertSort();
 
         for (int j = 0; j < n; j++){
-            aux = GeneradorDatos.generarArregloIntM_m(j,1000);
+            aux = GeneradorDatos.generarArregloInt(j,1000);
             b1.ordenar(aux);
             tiempos2[j] = (int) b1.gettTotal();
             //System.out.println("j= "+j+" :"+tiempos[j]);
         }  
       GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos");
-              g1.agregarSerie(tiempos, "tiempos caso medio");
-
-        g1.agregarSerie(tiempos2, "tiempos peor caso");
+        g1.agregarSerie(tiempos, "Burbuja");
+        g1.agregarSerie(tiempos2, "InsertSort");
         g1.creaYmuestraGrafica();
         /* GraficaTiempo miGraficador2 = new GraficaTiempo(tiempos2, "Mayor menor");
         miGraficador2.pack();
