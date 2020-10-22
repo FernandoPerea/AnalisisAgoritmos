@@ -88,12 +88,14 @@ public class GeneradorDatos {
             arreglo[y] = ran.nextInt(bound);
         }
         Burbuja b = new Burbuja();
-       int[] arreglox = new int[n];
+          
+        int[] arreglox = new int[n];
        
         arreglox = b.ordenarDatosM_m(arreglo);
         
         return arreglox;
     }
+      
        public static int[] generarArregloInt(int n, int bound){
         int[] arreglo = new int[n];
         Random ran = new Random();

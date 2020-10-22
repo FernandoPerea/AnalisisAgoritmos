@@ -64,23 +64,24 @@ public class Burbuja {
       }
       arregloOrdenado = datos;
       }
-       public int[] ordenarDatosM_m(int[] datos) {
+       public int[] ordenarDatosM_m(int[] datos) {// mejor de los casos 2 + 3n + 7n^2
   
-      int auxiliar;
-      int[] arregloOrdenado;
-      for(int i = 0; i < datos.length-1; i++)
+      int auxiliar; //1
+      int[] arregloOrdenado; //1
+      
+      for(int i = 0; i < datos.length-1; i++) //3n
       {
-        for(int j = 0;j < datos.length-1;j++)
+        for(int j = 0;j < datos.length-1;j++) //3(n(n)  ->  7n^2
         {
-          if(datos[j+1] > datos[j])
-          {
-            auxiliar = datos[j+1];
-            datos[j+1] = datos[j];
-            datos[j] = auxiliar;
+          if (datos[j] < datos[j+1]){ //4
+			auxiliar = datos[j]; 
+			datos[j] = datos[j+1]; 
+			datos[j+1] = auxiliar;
           }   
         }
       }
       arregloOrdenado = datos;
+     
       return arregloOrdenado;
       }
 }

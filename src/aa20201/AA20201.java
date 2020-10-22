@@ -66,14 +66,14 @@ public class AA20201 {
             tiempos2[j] = (int) b1.gettTotal();
             //System.out.println("j= "+j+" :"+tiempos[j]);
         }  
-      GraficaTiempo miGraficador = new GraficaTiempo(tiempos, "Caos Medio");
-        miGraficador.pack();
-        RefineryUtilities.centerFrameOnScreen(miGraficador);
-        miGraficador.setVisible(true);
-         GraficaTiempo miGraficador2 = new GraficaTiempo(tiempos2, "Mayor menor");
+      GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos");
+        g1.agregarSerie(tiempos2, "tiempos peor caso");
+        g1.agregarSerie(tiempos, "tiempos caso medio");
+        g1.creaYmuestraGrafica();
+        /* GraficaTiempo miGraficador2 = new GraficaTiempo(tiempos2, "Mayor menor");
         miGraficador2.pack();
         RefineryUtilities.centerFrameOnScreen(miGraficador2);
-        miGraficador2.setVisible(true);
+        miGraficador2.setVisible(true);*/
        
        
     }
