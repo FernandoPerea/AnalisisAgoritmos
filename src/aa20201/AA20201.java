@@ -49,7 +49,7 @@ public class AA20201 {
         g1.agregarSerie(tiempos, "Burbuja");
         g1.agregarSerie(tiempos2, "InsertSort");
         g1.creaYmuestraGrafica();*/
-       int serie=50;
+       int serie=45;
        
        
          double[] tiempos = new double[serie+1];
