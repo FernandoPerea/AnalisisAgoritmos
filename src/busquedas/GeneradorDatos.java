@@ -103,10 +103,9 @@ public class GeneradorDatos {
         for(int y=0; y < n; y++){
             arreglo[y] = ran.nextInt(bound);
         }
+        
         InsertSort b = new InsertSort();
-          
         int[] arreglox = new int[n];
-       
         arreglox = b.ordenarDatosM_m(arreglo);
         
         return arreglox;

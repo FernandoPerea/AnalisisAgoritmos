@@ -58,7 +58,7 @@ public class InsertSort {
         }  
       
       }
-     public int[] ordenarDatosM_m(int[] datos) {// mejor de los casos 2 + 3n + 7n^2
+     public int[] ordenarDatosM_m(int[] datos) {
   int n = datos.length;  
         for (int j = 1; j < n; j++) {  
             int aux = datos[j];  
