@@ -28,12 +28,7 @@ public class Burbuja {
         this.tFinal = System.currentTimeMillis();
         this.tTotal = this.tFinal - this.tInicio;
     }
-       public void ordenarM_m(int[] datos){
-        this.tInicio = System.currentTimeMillis();
-        ordenarDatosM_m(datos);
-        this.tFinal = System.currentTimeMillis();
-        this.tTotal = this.tFinal - this.tInicio;
-    }
+
     public long gettFinal() {
         return tFinal;
     }
@@ -46,7 +41,7 @@ public class Burbuja {
         return tTotal;
     }
 
-    private void ordenarDatos(int[] datos) {
+    public int[] ordenarDatos(int[] datos) {
   
       int auxiliar;
       int[] arregloOrdenado;
@@ -64,8 +59,10 @@ public class Burbuja {
         }
       }
       arregloOrdenado = datos;
+      return arregloOrdenado;
       }
-       public int[] ordenarDatosM_m(int[] datos) {// mejor de los casos 2 + 3n + 7n^2
+    
+    public int[] ordenarDatosM_m(int[] datos) {// mejor de los casos 2 + 3n + 7n^2
   
       int auxiliar; //1
       int[] arregloOrdenado; //1

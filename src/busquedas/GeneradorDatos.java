@@ -15,7 +15,7 @@ import java.util.Random;
  */
 public class GeneradorDatos {
     
-    // "aleatorio"
+    // Arreglos  "aleatorio" Para Busquedas
     public static int[] generarArregloInt(int x, int dim, int bound){
         int[] arreglo = new int[dim];
         Random ran = new Random();
@@ -31,9 +31,10 @@ public class GeneradorDatos {
         
        return arreglo;
     }
+  /////////////////////////////////////////////////////////////////////////////////////////////////
     
-    // "peor de los casos unico elemento"
-    public static int[] generarArregloIntPeorCaso(int x, int dim, int bound){
+    // Arreglos Peor, Medio y mejor Caso para Busquedas
+        public static int[] generarArregloIntPeorCaso(int x, int dim, int bound){
         int[] arreglo = new int[dim];
        
        
@@ -56,7 +57,8 @@ public class GeneradorDatos {
       arreglo[0] = x;
         
        return arreglo;
-    }    public static int[] generarArregloIntMedioCaso(int x, int dim, int bound){
+    }    
+        public static int[] generarArregloIntMedioCaso(int x, int dim, int bound){
         int[] arreglo = new int[dim];
        
        
@@ -68,9 +70,9 @@ public class GeneradorDatos {
         
        return arreglo;
     }
-    
+   /////////////////////////////////////////////////////////////////////////////////////////////////
 
-    //genera numeros aleatorios en base a una valor x que no queremos que se genere
+    //Generador de Numero aleatorio
     public static int generarNumeroAleatorioControlado(int x, int bound){
      Random ran = new Random();
      int aux =ran.nextInt(bound);
@@ -80,45 +82,49 @@ public class GeneradorDatos {
      }
      return aux;
     }
+ ///////////////////////////////////////////////////////////////////////////////////////////////////
     
-      public static int[] generarArregloIntM_m(int n, int bound){
+    //Arreglo Peor, Medio y mejor Caso para Ordenamiento utilizando InsertSort
+    
+    public static int[] generarArregloIntMejorCasoOrd(int n, int bound){
         int[] arreglo = new int[n];
         Random ran = new Random();
      
         for(int y=0; y < n; y++){
             arreglo[y] = ran.nextInt(bound);
         }
-        Burbuja b = new Burbuja();
+        InsertSort is = new InsertSort();
           
         int[] arreglox = new int[n];
        
-        arreglox = b.ordenarDatosM_m(arreglo);
+        arreglox = is.ordenarDatos(arreglo);
         
         return arreglox;
     }
-            public static int[] generarArregloIntM_mwIS(int n, int bound){
+    public static int[] generarArregloIntMedioCasoOrd(int n, int bound){
         int[] arreglo = new int[n];
         Random ran = new Random();
      
         for(int y=0; y < n; y++){
             arreglo[y] = ran.nextInt(bound);
         }
-        
-        InsertSort b = new InsertSort();
-        int[] arreglox = new int[n];
-        arreglox = b.ordenarDatosM_m(arreglo);
-        
-        return arreglox;
-    }
-       public static int[] generarArregloInt(int n, int bound){
-        int[] arreglo = new int[n];
-        Random ran = new Random();
-     
-        for(int y=0; y < n; y++){
-            arreglo[y] = ran.nextInt(bound);
-        }
-       
-        
+               
         return arreglo;
     }
+    public static int[] generarArregloIntPeorCasoOrd(int n, int bound){
+        int[] arreglo = new int[n];
+        Random ran = new Random();
+     
+        for(int y=0; y < n; y++){
+            arreglo[y] = ran.nextInt(bound);
+        }        
+        InsertSort is = new InsertSort();
+        
+        int[] arreglox = new int[n];
+        
+        arreglox = is.ordenarDatosM_m(arreglo);
+        
+        return arreglox;
+    }
+     
 }

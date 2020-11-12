@@ -41,7 +41,7 @@ public class GraficaTiempo {
         XYSeries serie = new XYSeries(id);
         for(int x=0;x<datos.length;x++){
             serie.add(x, datos[x]);//es (x,y) en el eje x-->Cantidad de datos que tiene el arreglo   y el el y-->tiempo que tardo
-                        serie.add(x, 0);
+           // serie.add(x, 0);
 
         }
         this.series.addSeries(serie);

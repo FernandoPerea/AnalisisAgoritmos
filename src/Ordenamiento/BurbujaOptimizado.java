@@ -9,12 +9,14 @@ package Ordenamiento;
  *
  * @author Dell
  */
-public class InsertSort {
-     public long tInicio;
+public class BurbujaOptimizado {
+      
+   
+    public long tInicio;
     public long tFinal;
     public long tTotal;
 
-    public InsertSort() {
+    public BurbujaOptimizado() {
         this.tFinal = 0;
         this.tInicio = 0;
         this.tTotal = 0 ;
@@ -26,7 +28,7 @@ public class InsertSort {
         this.tFinal = System.currentTimeMillis();
         this.tTotal = this.tFinal - this.tInicio;
     }
-     
+
     public long gettFinal() {
         return tFinal;
     }
@@ -40,31 +42,24 @@ public class InsertSort {
     }
 
     public int[] ordenarDatos(int[] datos) {
-        int n = datos.length;  
-        for (int j = 1; j < n; j++) {  
-            int aux = datos[j];  
-            int i = j-1;  
-            while ( (i > -1) && ( datos [i] > aux ) ) {  
-                datos [i+1] = datos [i];  
-                i--;  
-            }  
-            datos[i+1] = aux;  
-        }  
+  
+      int AUX;
+      int N=0;
+      int bandera=1;
+
+      for(int paso=0 ; paso< (datos.length-1) && bandera==1 ;paso++) {
+	bandera=0;
+	for(int j=0;j<(datos.length-paso-1) ;j++){
+		if(datos[j]>datos[j+1])
+		  {
+			bandera=1; /* indica si se han realizados cambios o no */
+			AUX=datos[j];
+			datos[j]=datos[j+1];
+			datos[j+1]=AUX;
+		  }
+	  }
+         }
       return datos;
-      }
-    
-    
-     public int[] ordenarDatosM_m(int[] datos) {
-         int n = datos.length;  
-        for (int j = 1; j < n; j++) {  
-            int aux = datos[j];  
-            int i = j-1;  
-          while (j > 0 && datos[j - 1] < aux) {
-              datos [i+1] = datos [i];
-                 i--;  
-            }  
-            datos[i+1] = aux;  
-        }  
-     return datos;
-      }
+    }   
+  
 }
