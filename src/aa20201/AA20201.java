@@ -31,385 +31,331 @@ public class AA20201 {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        
-       primero(6000);
+        int n = 10000;
 
-
-
-       
-  }
-    public static void primero(int n){
-      int[] arreglogen;
-       int[] auxb;
-       int[] auxis;
-       int[] auxms;
-       
-        double[] tiemposb = new double[n];
-        double[] tiemposis = new double[n];
-        double[] tiemposms = new double[n];
-        
-        Burbuja b = new Burbuja();
-        InsertSort is = new InsertSort();
-        MergeSort ms = new MergeSort();
-
-        for (int j = 0; j < n; j++){
-          arreglogen = GeneradorDatos.generarArregloIntMejorCasoOrd(j,1000);
-          auxb = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxis = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxms = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          
-          b.ordenar(auxb);
-          is.ordenar(auxis);
-          ms.ordenar(auxms);
-          
-            tiemposb[j] =  b.gettTotal();
-            tiemposis[j] =  is.gettTotal();
-            tiemposms[j] = ms.gettTotal();
-        }  
-              
-     GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Mejor");
-         g1.agregarSerie(tiemposms, "MergeSort");
-         g1.agregarSerie(tiemposis, "InsertSort");
-         g1.agregarSerie(tiemposb, "Burbuja");
-         g1.creaYmuestraGrafica();
-         
-         
-       int[] arreglogenmed;
-       int[] auxbmed;
-       int[] auxismed;
-       int[] auxmsmed;
-       
+     /*   double[] tiemposbmej = new double[n];
         double[] tiemposbmed = new double[n];
+        double[] tiemposbpeo = new double[n];
+
+        double[] tiemposismej = new double[n];
         double[] tiemposismed = new double[n];
+        double[] tiemposispeo = new double[n];
+
+        double[] tiemposmsmej = new double[n];
         double[] tiemposmsmed = new double[n];
-        
+        double[] tiemposmspeo = new double[n];
+
+        Burbuja bmej = new Burbuja();
+        InsertSort ismej = new InsertSort();
+        MergeSort msmej = new MergeSort();
+
         Burbuja bmed = new Burbuja();
         InsertSort ismed = new InsertSort();
         MergeSort msmed = new MergeSort();
 
-        for (int j = 0; j < n; j++){
-          arreglogenmed = GeneradorDatos.generarArregloIntMedioCasoOrd(j,1000);
-          auxbmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxismed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxmsmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          
-          bmed.ordenar(auxbmed);
-          ismed.ordenar(auxismed);
-          msmed.ordenar(auxmsmed);
-          
-            tiemposbmed[j] =  bmed.gettTotal();
-            tiemposismed[j] =  ismed.gettTotal();
-            tiemposmsmed[j] = msmed.gettTotal();
-        }  
-              
-
-       
-      GraficaTiempo g1med = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Medio");
-         g1med.agregarSerie(tiemposmsmed, "MergeSort");
-         g1med.agregarSerie(tiemposismed, "InsertSort");
-         g1med.agregarSerie(tiemposbmed, "Burbuja");
-         g1med.creaYmuestraGrafica();
-         
-       int[] arreglogenpeo;
-       int[] auxbpeo;
-       int[] auxispeo;
-       int[] auxmspeo;
-       
-        double[] tiemposbpeo = new double[n];
-        double[] tiemposispeo = new double[n];
-        double[] tiemposmspeo = new double[n];
-        
         Burbuja bpeo = new Burbuja();
         InsertSort ispeo = new InsertSort();
         MergeSort mspeo = new MergeSort();
 
-        for (int j = 0; j < n; j++){
-          arreglogenpeo = GeneradorDatos.generarArregloIntMedioCasoOrd(j,1000);
-          auxbpeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxispeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxmspeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          
-          bpeo.ordenar(auxbpeo);
-          ispeo.ordenar(auxispeo);
-          mspeo.ordenar(auxmspeo);
-          
-            tiemposbpeo[j] =  bpeo.gettTotal();
-            tiemposispeo[j] =  ispeo.gettTotal();
-            tiemposmspeo[j] = mspeo.gettTotal();
-        }  
-              
+        Burbuja bM_m = new Burbuja();
+        InsertSort ism_M = new InsertSort();
 
-       
-      GraficaTiempo g1peo = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Peor");
-         g1peo.agregarSerie(tiemposmspeo, "MergeSort");
-         g1peo.agregarSerie(tiemposispeo, "InsertSort");
-         g1peo.agregarSerie(tiemposbpeo, "Burbuja");
-         g1peo.creaYmuestraGrafica();
-    }
-    public static void segundo(int n){
-    
-       int[] arreglogen;
-       int[] auxb;
-       int[] auxis;
-       int[] auxms;
-       int[] auxbo;
-       
-        double[] tiemposb = new double[n];
-        double[] tiemposis = new double[n];
-        double[] tiemposms = new double[n];
-        double[] tiemposbo = new double[n];
+        for (int j = 0; j < n; j++) {
+            int[] arreglogen = GeneradorDatos.generarArregloIntMedioCasoOrd(j, 1000);
 
-        Burbuja b = new Burbuja();
-        InsertSort is = new InsertSort();
-        MergeSort ms = new MergeSort();
-        BurbujaOptimizado bo = new BurbujaOptimizado();
-        
-        for (int j = 0; j < n; j++){
-          arreglogen = GeneradorDatos.generarArregloIntMejorCasoOrd(j,1000);
-          auxb = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxis = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxms = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxbo = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          
-          b.ordenar(auxb);
-          is.ordenar(auxis);
-          ms.ordenar(auxms);
-          bo.ordenar(auxbo);
-          
-            tiemposb[j] =  b.gettTotal();
-            tiemposis[j] =  is.gettTotal();
-            tiemposms[j] = ms.gettTotal();
-            tiemposbo[j] = bo.gettTotal();
-        }  
-              
-     GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Mejor");
-         g1.agregarSerie(tiemposbo, "BurbujaOptimizado");
-         g1.agregarSerie(tiemposms, "MergeSort");
-         g1.agregarSerie(tiemposis, "InsertSort");
-         g1.agregarSerie(tiemposb, "Burbuja");
-         g1.creaYmuestraGrafica();
-         
-         
-       int[] arreglogenmed;
-       int[] auxbmed;
-       int[] auxismed;
-       int[] auxmsmed;
-       int[] auxbomed;
-       
+            //Mejor de los casos
+            int[] auxbmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bmej.ordenar(ism_M.ordenarDatos(auxbmej));
+            tiemposbmej[j] = (int) bmej.gettTotal();
+
+            int[] auxismej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            ismej.ordenar(ism_M.ordenarDatos(auxismej));
+            tiemposismej[j] = (int) ismej.gettTotal();
+
+            int[] auxmsmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            msmej.ordenar(ism_M.ordenarDatos(auxmsmej));
+            tiemposmsmej[j] = (int) msmej.gettTotal();
+            //Medio de los casos
+            int[] auxbmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bmed.ordenar(auxbmed);
+            tiemposbmed[j] = (int) bmed.gettTotal();
+
+            int[] auxismed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            ismed.ordenar(auxismed);
+            tiemposismed[j] = (int) ismed.gettTotal();
+
+            int[] auxmsmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            msmed.ordenar(auxmsmed);
+            tiemposmsmed[j] = (int) msmed.gettTotal();
+            //Peor de los casos
+            int[] auxbpeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bpeo.ordenar(bM_m.ordenarDatosM_m(auxbpeo));
+            tiemposbpeo[j] = (int) bpeo.gettTotal();
+
+            int[] auxispeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            ispeo.ordenar(bM_m.ordenarDatosM_m(auxispeo));
+            tiemposispeo[j] = (int) ispeo.gettTotal();
+
+            int[] auxmspeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            mspeo.ordenar(bM_m.ordenarDatosM_m(auxmspeo));
+            tiemposmspeo[j] = (int) mspeo.gettTotal();
+
+        }
+
+        GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Mejor");
+
+        g1.agregarSerie(tiemposmsmej, "MergeSort");
+        g1.agregarSerie(tiemposismej, "InsertSort");
+        g1.agregarSerie(tiemposbmej, "Burbuja");
+
+        g1.creaYmuestraGrafica();
+
+        GraficaTiempo g1med = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Medio");
+
+        g1med.agregarSerie(tiemposmsmed, "MergeSort");
+        g1med.agregarSerie(tiemposismed, "InsertSort");
+        g1med.agregarSerie(tiemposbmed, "Burbuja");
+
+        g1med.creaYmuestraGrafica();
+        GraficaTiempo g1peo = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Peor");
+
+        g1peo.agregarSerie(tiemposmspeo, "MergeSort");
+        g1peo.agregarSerie(tiemposispeo, "InsertSort");
+        g1peo.agregarSerie(tiemposbpeo, "Burbuja");
+
+        g1peo.creaYmuestraGrafica();
+        */
+     
+     /*
+        double[] tiemposbmej = new double[n];
         double[] tiemposbmed = new double[n];
+        double[] tiemposbpeo = new double[n];
+
+        double[] tiemposismej = new double[n];
         double[] tiemposismed = new double[n];
+        double[] tiemposispeo = new double[n];
+
+        double[] tiemposmsmej = new double[n];
         double[] tiemposmsmed = new double[n];
+        double[] tiemposmspeo = new double[n];
+        
+        double[] tiemposbomej = new double[n];
         double[] tiemposbomed = new double[n];
+        double[] tiemposbopeo = new double[n];
+
+        double[] tiemposqsmej = new double[n];
+        double[] tiemposqsmed = new double[n];
+        double[] tiemposqspeo = new double[n];
+        
+        Burbuja bmej = new Burbuja();
+        InsertSort ismej = new InsertSort();
+        MergeSort msmej = new MergeSort();
+        BurbujaOptimizado bomej = new BurbujaOptimizado();
+        QuickSort qsmej = new QuickSort();
 
         Burbuja bmed = new Burbuja();
         InsertSort ismed = new InsertSort();
         MergeSort msmed = new MergeSort();
         BurbujaOptimizado bomed = new BurbujaOptimizado();
-
-        for (int j = 0; j < n; j++){
-          arreglogenmed = GeneradorDatos.generarArregloIntMedioCasoOrd(j,1000);
-          auxbmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxismed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxmsmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxbomed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-
-          bmed.ordenar(auxbmed);
-          ismed.ordenar(auxismed);
-          msmed.ordenar(auxmsmed);
-          bomed.ordenar(auxbomed);
-          
-            tiemposbmed[j] =  bmed.gettTotal();
-            tiemposismed[j] =  ismed.gettTotal();
-            tiemposmsmed[j] = msmed.gettTotal();
-            tiemposbomed[j] = bomed.gettTotal();
-        }  
-              
-
-       
-      GraficaTiempo g1med = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Medio");
-          g1med.agregarSerie(tiemposbomed, "BurbujaOptimizado");
-         g1med.agregarSerie(tiemposmsmed, "MergeSort");
-         g1med.agregarSerie(tiemposismed, "InsertSort");
-         g1med.agregarSerie(tiemposbmed, "Burbuja");
-         g1med.creaYmuestraGrafica();
-         
-       int[] arreglogenpeo;
-       int[] auxbpeo;
-       int[] auxispeo;
-       int[] auxmspeo;
-       int[] auxbopeo;
-       
-        double[] tiemposbpeo = new double[n];
-        double[] tiemposispeo = new double[n];
-        double[] tiemposmspeo = new double[n];
-        double[] tiemposbopeo = new double[n];
+        QuickSort qsmed = new QuickSort();
 
         Burbuja bpeo = new Burbuja();
         InsertSort ispeo = new InsertSort();
         MergeSort mspeo = new MergeSort();
         BurbujaOptimizado bopeo = new BurbujaOptimizado();
-
-        for (int j = 0; j < n; j++){
-          arreglogenpeo = GeneradorDatos.generarArregloIntMedioCasoOrd(j,1000);
-          auxbpeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxispeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxmspeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxbopeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          
-          bpeo.ordenar(auxbpeo);
-          ispeo.ordenar(auxispeo);
-          mspeo.ordenar(auxmspeo);
-          bopeo.ordenar(auxbopeo);
-          
-            tiemposbpeo[j] =  bpeo.gettTotal();
-            tiemposispeo[j] =  ispeo.gettTotal();
-            tiemposmspeo[j] = mspeo.gettTotal();
-            tiemposbopeo[j] = bopeo.gettTotal();
-
-        }  
-              
-       
-      GraficaTiempo g1peo = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Peor");
-         g1peo.agregarSerie(tiemposbopeo, "BurbujaOptimizado");
-         g1peo.agregarSerie(tiemposmspeo, "MergeSort");
-         g1peo.agregarSerie(tiemposispeo, "InsertSort");
-         g1peo.agregarSerie(tiemposbpeo, "Burbuja");
-         g1peo.creaYmuestraGrafica();
+        QuickSort qspeo = new QuickSort();
     
-    }
-    
-    public static void tercero(int n){
-    
-       int[] arreglogen;
-       int[] auxb;
-       int[] auxis;
-       int[] auxms;
-       int[] auxqs;
-       
-        double[] tiemposb = new double[n];
-        double[] tiemposis = new double[n];
-        double[] tiemposms = new double[n];
-        double[] tiemposqs = new double[n];
-
-        Burbuja b = new Burbuja();
-        InsertSort is = new InsertSort();
-        MergeSort ms = new MergeSort();
-        QuickSort qs = new QuickSort();
         
-        for (int j = 0; j < n; j++){
-          arreglogen = GeneradorDatos.generarArregloIntMejorCasoOrd(j,1000);
-          auxb = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxis = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxms = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          auxqs = Arrays.copyOfRange(arreglogen,0,arreglogen.length);
-          
-          b.ordenar(auxb);
-          is.ordenar(auxis);
-          ms.ordenar(auxms);
-          qs.ordenar(auxqs);
-          
-            tiemposb[j] =  b.gettTotal();
-            tiemposis[j] =  is.gettTotal();
-            tiemposms[j] = ms.gettTotal();
-            tiemposqs[j] = qs.gettTotal();
-        }  
-              
-     GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Mejor");
-         g1.agregarSerie(tiemposqs, "QuickSort");
-         g1.agregarSerie(tiemposms, "MergeSort");
-         g1.agregarSerie(tiemposis, "InsertSort");
-         g1.agregarSerie(tiemposb, "Burbuja");
-         g1.creaYmuestraGrafica();
-         
-         
-       int[] arreglogenmed;
-       int[] auxbmed;
-       int[] auxismed;
-       int[] auxmsmed;
-       int[] auxqsmed;
-       
-        double[] tiemposbmed = new double[n];
-        double[] tiemposismed = new double[n];
-        double[] tiemposmsmed = new double[n];
-        double[] tiemposqsmed = new double[n];
+        Burbuja bM_m = new Burbuja();
+        InsertSort ism_M = new InsertSort();
 
-        Burbuja bmed = new Burbuja();
-        InsertSort ismed = new InsertSort();
+        for (int j = 0; j < n; j++) {
+            int[] arreglogen = GeneradorDatos.generarArregloIntMedioCasoOrd(j, 1000);
+
+            //Mejor de los casos
+            int[] auxbmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bmej.ordenar(ism_M.ordenarDatos(auxbmej));
+            tiemposbmej[j] = (int) bmej.gettTotal();
+
+            int[] auxismej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            ismej.ordenar(ism_M.ordenarDatos(auxismej));
+            tiemposismej[j] = (int) ismej.gettTotal();
+
+            int[] auxmsmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            msmej.ordenar(ism_M.ordenarDatos(auxmsmej));
+            tiemposmsmej[j] = (int) msmej.gettTotal();
+            
+            int[] auxbomej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bomej.ordenar(ism_M.ordenarDatos(auxbomej));
+            tiemposbomej[j] = (int) bomej.gettTotal();
+            
+            int[] auxqsmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            qsmej.ordenar(ism_M.ordenarDatos(auxqsmej));
+            tiemposqsmej[j] = (int) qsmej.gettTotal();
+            
+            //Medio de los casos
+            int[] auxbmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bmed.ordenar(auxbmed);
+            tiemposbmed[j] = (int) bmed.gettTotal();
+
+            int[] auxismed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            ismed.ordenar(auxismed);
+            tiemposismed[j] = (int) ismed.gettTotal();
+
+            int[] auxmsmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            msmed.ordenar(auxmsmed);
+            tiemposmsmed[j] = (int) msmed.gettTotal();
+           
+            int[] auxbomed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bomed.ordenar(auxbomed);
+            tiemposbomed[j] = (int) bomed.gettTotal();
+            
+            int[] auxqsmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            qsmed.ordenar(auxqsmed);
+            tiemposqsmed[j] = (int) qsmed.gettTotal();
+            
+            
+           //Peor de los casos
+            int[] auxbpeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bpeo.ordenar(bM_m.ordenarDatosM_m(auxbpeo));
+            tiemposbpeo[j] = (int) bpeo.gettTotal();
+
+            int[] auxispeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            ispeo.ordenar(bM_m.ordenarDatosM_m(auxispeo));
+            tiemposispeo[j] = (int) ispeo.gettTotal();
+
+            int[] auxmspeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            mspeo.ordenar(bM_m.ordenarDatosM_m(auxmspeo));
+            tiemposmspeo[j] = (int) mspeo.gettTotal();
+            
+            int[] auxbopeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            bopeo.ordenar(bM_m.ordenarDatosM_m(auxbopeo));
+            tiemposbopeo[j] = (int) bopeo.gettTotal();
+            
+            int[] auxqspeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            qspeo.ordenar(bM_m.ordenarDatosM_m(auxqspeo));
+            tiemposqspeo[j] = (int) qspeo.gettTotal();
+        }
+
+        GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Mejor");
+
+        g1.agregarSerie(tiemposmsmej, "MergeSort");
+        g1.agregarSerie(tiemposismej, "InsertSort");
+        g1.agregarSerie(tiemposqsmej, "QuickSort");
+        g1.agregarSerie(tiemposbmej, "Burbuja");
+        g1.agregarSerie(tiemposbomej, "BurbujaOptimizado");
+
+        g1.creaYmuestraGrafica();
+
+        GraficaTiempo g1med = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Medio");
+
+        g1med.agregarSerie(tiemposmsmed, "MergeSort");
+        g1med.agregarSerie(tiemposismed, "InsertSort");
+        g1med.agregarSerie(tiemposqsmed, "QuickSort");
+        g1med.agregarSerie(tiemposbmed, "Burbuja");
+        g1med.agregarSerie(tiemposbomed, "BurbujaOptimizado");
+        g1med.creaYmuestraGrafica();
+        
+        GraficaTiempo g1peo = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Peor");
+
+        g1peo.agregarSerie(tiemposmspeo, "MergeSort");
+        g1peo.agregarSerie(tiemposispeo, "InsertSort");
+        g1peo.agregarSerie(tiemposqspeo, "QuickSort");
+        g1peo.agregarSerie(tiemposbpeo, "Burbuja");
+        g1peo.agregarSerie(tiemposbopeo, "BurbujaOptimizado");
+        g1peo.creaYmuestraGrafica();
+
+*/
+     
+
+        double[] tiemposmsmej = new double[n];
+        double[] tiemposmsmed = new double[n];
+        double[] tiemposmspeo = new double[n];
+        
+      
+
+        double[] tiemposqsmej = new double[n];
+        double[] tiemposqsmed = new double[n];
+        double[] tiemposqspeo = new double[n];
+        
+      
+        MergeSort msmej = new MergeSort();
+        QuickSort qsmej = new QuickSort();
+
+       
         MergeSort msmed = new MergeSort();
         QuickSort qsmed = new QuickSort();
 
-        for (int j = 0; j < n; j++){
-          arreglogenmed = GeneradorDatos.generarArregloIntMedioCasoOrd(j,1000);
-          auxbmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxismed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxmsmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-          auxqsmed = Arrays.copyOfRange(arreglogenmed,0,arreglogenmed.length);
-
-          bmed.ordenar(auxbmed);
-          ismed.ordenar(auxismed);
-          msmed.ordenar(auxmsmed);
-          qsmed.ordenar(auxqsmed);
-          
-            tiemposbmed[j] =  bmed.gettTotal();
-            tiemposismed[j] =  ismed.gettTotal();
-            tiemposmsmed[j] = msmed.gettTotal();
-            tiemposqsmed[j] = qsmed.gettTotal();
-        }  
-              
-
-       
-      GraficaTiempo g1med = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Medio");
-          g1med.agregarSerie(tiemposqsmed, "QuickSort");
-         g1med.agregarSerie(tiemposmsmed, "MergeSort");
-         g1med.agregarSerie(tiemposismed, "InsertSort");
-         g1med.agregarSerie(tiemposbmed, "Burbuja");
-         g1med.creaYmuestraGrafica();
-         
-       int[] arreglogenpeo;
-       int[] auxbpeo;
-       int[] auxispeo;
-       int[] auxmspeo;
-       int[] auxqspeo;
-       
-        double[] tiemposbpeo = new double[n];
-        double[] tiemposispeo = new double[n];
-        double[] tiemposmspeo = new double[n];
-        double[] tiemposqspeo = new double[n];
-
-        Burbuja bpeo = new Burbuja();
-        InsertSort ispeo = new InsertSort();
+        
         MergeSort mspeo = new MergeSort();
         QuickSort qspeo = new QuickSort();
+    
+        
+        Burbuja bM_m = new Burbuja();
+        InsertSort ism_M = new InsertSort();
 
-        for (int j = 0; j < n; j++){
-          arreglogenpeo = GeneradorDatos.generarArregloIntMedioCasoOrd(j,1000);
-          auxbpeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxispeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxmspeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          auxqspeo = Arrays.copyOfRange(arreglogenpeo,0,arreglogenpeo.length);
-          
-          bpeo.ordenar(auxbpeo);
-          ispeo.ordenar(auxispeo);
-          mspeo.ordenar(auxmspeo);
-          qspeo.ordenar(auxqspeo);
-          
-            tiemposbpeo[j] =  bpeo.gettTotal();
-            tiemposispeo[j] =  ispeo.gettTotal();
-            tiemposmspeo[j] = mspeo.gettTotal();
-            tiemposqspeo[j] = qspeo.gettTotal();
+        for (int j = 0; j < n; j++) {
+            int[] arreglogen = GeneradorDatos.generarArregloIntMedioCasoOrd(j, 1000);
 
-        }  
-              
+            //Mejor de los casos
+           
+
+            int[] auxmsmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            msmej.ordenar(ism_M.ordenarDatos(auxmsmej));
+            tiemposmsmej[j] = (int) msmej.gettTotal();
+            
+           
+            
+            int[] auxqsmej = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            qsmej.ordenar(ism_M.ordenarDatos(auxqsmej));
+            tiemposqsmej[j] = (int) qsmej.gettTotal();
+            
+            //Medio de los casos
+            
+
+            int[] auxmsmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            msmed.ordenar(auxmsmed);
+            tiemposmsmed[j] = (int) msmed.gettTotal();
+           
+                    
+            int[] auxqsmed = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            qsmed.ordenar(auxqsmed);
+            tiemposqsmed[j] = (int) qsmed.gettTotal();
+            
+            
+           //Peor de los casos
+           
+
+            int[] auxmspeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            mspeo.ordenar(bM_m.ordenarDatosM_m(auxmspeo));
+            tiemposmspeo[j] = (int) mspeo.gettTotal();
+          
+            
+            int[] auxqspeo = Arrays.copyOfRange(arreglogen, 0, arreglogen.length);
+            qspeo.ordenar(bM_m.ordenarDatosM_m(auxqspeo));
+            tiemposqspeo[j] = (int) qspeo.gettTotal();
+        }
+
+        GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Mejor");
+
+        g1.agregarSerie(tiemposmsmej, "MergeSort");
        
-      GraficaTiempo g1peo = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Peor");
-         g1peo.agregarSerie(tiemposqspeo, "QuickSort");
-         g1peo.agregarSerie(tiemposmspeo, "MergeSort");
-         g1peo.agregarSerie(tiemposispeo, "InsertSort");
-         g1peo.agregarSerie(tiemposbpeo, "Burbuja");
-         g1peo.creaYmuestraGrafica();
-    
-    
-    
-    
+        g1.agregarSerie(tiemposqsmej, "QuickSort");
+        
+
+        g1.creaYmuestraGrafica();
+
+        GraficaTiempo g1med = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Medio");
+
+        g1med.agregarSerie(tiemposmsmed, "MergeSort");
+        g1med.agregarSerie(tiemposqsmed, "QuickSort");
+       
+        g1med.creaYmuestraGrafica();
+        
+        GraficaTiempo g1peo = new GraficaTiempo("N", "Tiempo", "Tiempos Ordenar Menor a Mayor, Peor");
+
+        g1peo.agregarSerie(tiemposmspeo, "MergeSort");
+        g1peo.agregarSerie(tiemposqspeo, "QuickSort");
+               g1peo.creaYmuestraGrafica();
     }
 }

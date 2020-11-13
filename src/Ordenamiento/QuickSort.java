@@ -22,9 +22,8 @@ public class QuickSort {
     }
   
     public void ordenar(int[] datos){
-        int empieza=0;
         this.tInicio = System.currentTimeMillis();
-        ordenarDatos(datos,empieza,(datos.length)-1);
+        ordenarDatos(datos,0,(datos.length)-1);
         this.tFinal = System.currentTimeMillis();
         this.tTotal = this.tFinal - this.tInicio;
     }
@@ -41,8 +40,9 @@ public class QuickSort {
         return tTotal;
     }
 
-    public int[] ordenarDatos(int[] A, int izq, int der) {
-  
+    private void ordenarDatos(int[] A, int izq, int der) {
+        if(A.length<=1){
+			return;}else{
   int pivote = A[izq]; // tomamos primer elemento como pivote
   int i=izq;         // i realiza la búsqueda de izquierda a derecha
   int j=der;         // j realiza la búsqueda de derecha a izquierda
@@ -65,8 +65,7 @@ public class QuickSort {
       ordenarDatos(A,izq,j-1);          // ordenamos subarray izquierdo
    if(j+1 < der)
       ordenarDatos(A,j+1,der);          // ordenamos subarray derecho
-    return A; 
-    }
+    }}
     
     
 }

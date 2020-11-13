@@ -41,7 +41,7 @@ public class Burbuja {
         return tTotal;
     }
 
-    public int[] ordenarDatos(int[] datos) {
+    private void ordenarDatos(int[] datos) {
   
       int auxiliar;
       int[] arregloOrdenado;
@@ -59,7 +59,6 @@ public class Burbuja {
         }
       }
       arregloOrdenado = datos;
-      return arregloOrdenado;
       }
     
     public int[] ordenarDatosM_m(int[] datos) {// mejor de los casos 2 + 3n + 7n^2

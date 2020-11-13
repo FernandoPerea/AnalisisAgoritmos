@@ -27,12 +27,7 @@ public class MergeSort {
         this.tTotal = this.tFinal - this.tInicio;
     }
      
-    public void ordenarM_m(int[] datos){
-        this.tInicio = System.currentTimeMillis();
-        ordenarDatosM_m(datos);
-        this.tFinal = System.currentTimeMillis();
-        this.tTotal = this.tFinal - this.tInicio;
-    }
+  
     public long gettFinal() {
         return tFinal;
     }
@@ -84,10 +79,7 @@ public class MergeSort {
         a[k++] = r[j++];
     }
 }
-     public int[] ordenarDatosM_m(int[] datos) {
-         return datos; 
-            
-      }
+   
 }
 
 

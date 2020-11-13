@@ -55,16 +55,21 @@ public class InsertSort {
     
     
      public int[] ordenarDatosM_m(int[] datos) {
+               int[] arregloOrdenado; 
+
          int n = datos.length;  
         for (int j = 1; j < n; j++) {  
             int aux = datos[j];  
             int i = j-1;  
-          while (j > 0 && datos[j - 1] < aux) {
+          while ((j > 0) && datos[j - 1] < aux) {
               datos [i+1] = datos [i];
                  i--;  
             }  
             datos[i+1] = aux;  
         }  
-     return datos;
+          arregloOrdenado = datos;
+          
+     return arregloOrdenado;
       }
+     
 }

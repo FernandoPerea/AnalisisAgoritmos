@@ -41,7 +41,7 @@ public class BurbujaOptimizado {
         return tTotal;
     }
 
-    public int[] ordenarDatos(int[] datos) {
+   private void ordenarDatos(int[] datos) {
   
       int AUX;
       int N=0;
@@ -59,7 +59,6 @@ public class BurbujaOptimizado {
 		  }
 	  }
          }
-      return datos;
     }   
   
 }

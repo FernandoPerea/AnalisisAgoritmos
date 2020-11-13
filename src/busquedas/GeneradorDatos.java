@@ -103,7 +103,7 @@ public class GeneradorDatos {
     }
     public static int[] generarArregloIntMedioCasoOrd(int n, int bound){
         int[] arreglo = new int[n];
-        Random ran = new Random();
+         Random ran = new Random();
      
         for(int y=0; y < n; y++){
             arreglo[y] = ran.nextInt(bound);
@@ -118,11 +118,11 @@ public class GeneradorDatos {
         for(int y=0; y < n; y++){
             arreglo[y] = ran.nextInt(bound);
         }        
-        InsertSort is = new InsertSort();
+        Burbuja b = new Burbuja();
         
         int[] arreglox = new int[n];
         
-        arreglox = is.ordenarDatosM_m(arreglo);
+        arreglox = b.ordenarDatosM_m(arreglo);
         
         return arreglox;
     }
