@@ -5,6 +5,8 @@
  */
 package Fibonacci;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Dell
@@ -23,7 +25,7 @@ public Fibonacci() {
  public void doitrecur(int x) {
         this.tInicio = System.currentTimeMillis();
          for (int i = 0; i <= x; i++) {
-        Fibonacci.fibonacciRecursivo(i);
+       Fibonacci.fibonacciRecursivo(i);
          }
         this.tFinal = System.currentTimeMillis();
         this.tTotal = this.tFinal - this.tInicio;
@@ -31,6 +33,22 @@ public Fibonacci() {
   public void doititera(int serie, double num1, double num2, double suma) {
         this.tInicio = System.currentTimeMillis();
         Fibonacci.FiboIterativo(serie, num1, num2, suma);
+        this.tFinal = System.currentTimeMillis();
+        this.tTotal = this.tFinal - this.tInicio;
+       
+    }
+  
+   public void doitrecurdina(int x) {
+        this.tInicio = System.currentTimeMillis();
+         for (int i = 0; i <= x; i++) {
+    Fibonacci.fibonacciRecursivoDinamico(i);
+         }
+        this.tFinal = System.currentTimeMillis();
+        this.tTotal = this.tFinal - this.tInicio;
+    }
+  public void doititeradina(int serie) {
+        this.tInicio = System.currentTimeMillis();
+       Fibonacci.FiboIterativoDinamico(serie);
         this.tFinal = System.currentTimeMillis();
         this.tTotal = this.tFinal - this.tInicio;
        
@@ -50,11 +68,11 @@ public Fibonacci() {
     
 
 public static void FiboIterativo(int serie, double num1, double num2, double suma){
-       System.out.println(num1);
+
+       
         
-        for (int i = 1; i <= serie; i++) {
+        for (int i = 0; i < serie; i++) {
             
-            System.out.println(suma);
             
             suma = num1 + num2;
             num1 = num2;
@@ -77,4 +95,26 @@ public  static double fibonacciRecursivo(int n) {
         }
  
     }
+public static HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
+
+  public static int FiboIterativoDinamico(int n) {
+    hm.put(0, 0);
+    hm.put(1, 1);
+            
+    for(int i = 2; i <= n; i++) {
+         
+      hm.put(i, hm.get(i - 1) + hm.get(i - 2));
+    }
+
+    return hm.get(n);
+  }
+  
+  public static int fibonacciRecursivoDinamico(int n) {
+    if(hm.containsKey(n)) return hm.get(n);
+    if(n == 0) return 0;
+    if(n == 1) return 1;
+    int nthValue = fibonacciRecursivoDinamico(n - 1) + fibonacciRecursivoDinamico(n - 2);
+    hm.put(n, nthValue);
+    return nthValue;
+  }
 }
