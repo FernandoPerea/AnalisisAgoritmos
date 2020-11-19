@@ -6,18 +6,7 @@
 package aa20201;
 
 import Fibonacci.Fibonacci;
-import Fibonacci.tiemposfibo;
 import Grafcas.GraficaTiempo;
-import Ordenamiento.Burbuja;
-import Ordenamiento.BurbujaOptimizado;
-import Ordenamiento.InsertSort;
-import Ordenamiento.MergeSort;
-import Ordenamiento.QuickSort;
-import busquedas.BusquedaSecuencial;
-import busquedas.Busquedas;
-import busquedas.GeneradorDatos;
-import java.util.Arrays;
-import org.jfree.ui.RefineryUtilities;
 
 /**
  *
@@ -267,7 +256,7 @@ public class AA20201 {
 
 */
      
-
+/*
         double[] tiemposmsmej = new double[n];
         double[] tiemposmsmed = new double[n];
         double[] tiemposmspeo = new double[n];
@@ -356,6 +345,49 @@ public class AA20201 {
 
         g1peo.agregarSerie(tiemposmspeo, "MergeSort");
         g1peo.agregarSerie(tiemposqspeo, "QuickSort");
-               g1peo.creaYmuestraGrafica();
+               g1peo.creaYmuestraGrafica();*/
+n=1000000;
+
+double[] tiemposite = new double[n+1];
+//double[] tiemposrec = new double[n+1];
+double[] tiemposited = new double[n+1];
+double[] tiemposrecd = new double[n+1];
+
+  Fibonacci fibite = new Fibonacci();
+    //Fibonacci fibrec = new Fibonacci();
+  Fibonacci fibited = new Fibonacci();
+  Fibonacci fibrecd = new Fibonacci();
+
+  System.out.println("Iterativo");
+  for(int i = 0 ; i<=n ; i++){
+       fibite.doititera(i,0,1,1);
+       tiemposite[i] = fibite.tTotal;
+   }
+  /*System.out.println("Recursivo");
+    for(int i = 0 ; i<=n ; i++){
+       fibrec.doitrecur(i);
+        tiemposrec[i] = fibrec.tTotal;
+    }*/
+  System.out.println("Iterativo Dinamico");
+      for(int i = 0 ; i<=n ; i++){
+       fibited.doititeradina(4);
+          tiemposited[i] = fibited.tTotal;
+    }
+  System.out.println("Recursivo Dinamico");
+      for(int i = 0 ; i<=n ; i++){
+       fibrecd.doitrecurdina(4);
+          tiemposrecd[i] = fibrecd.tTotal;
+    }
+       
+        GraficaTiempo g1 = new GraficaTiempo("N", "Tiempo", "Fibonacci"); 
+
+        g1.agregarSerie(tiemposite, "Iterativo");
+       
+        //g1.agregarSerie(tiemposrec, "Recursivo");
+         g1.agregarSerie(tiemposited, "Iterativo Dinamico");
+       
+        g1.agregarSerie(tiemposrecd, "Recursivo Dinamico");
+
+        g1.creaYmuestraGrafica();
     }
 }
