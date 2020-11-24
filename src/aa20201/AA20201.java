@@ -7,6 +7,8 @@ package aa20201;
 
 import Fibonacci.Fibonacci;
 import Grafcas.GraficaTiempo;
+import TSP.AlgoritmoDijkstra;
+import TSP.Camino;
 
 /**
  *
@@ -346,6 +348,8 @@ public class AA20201 {
         g1peo.agregarSerie(tiemposmspeo, "MergeSort");
         g1peo.agregarSerie(tiemposqspeo, "QuickSort");
                g1peo.creaYmuestraGrafica();*/
+
+/*
 n=1000000;
 
 double[] tiemposite = new double[n+1];
@@ -367,7 +371,7 @@ double[] tiemposrecd = new double[n+1];
     for(int i = 0 ; i<=n ; i++){
        fibrec.doitrecur(i);
         tiemposrec[i] = fibrec.tTotal;
-    }*/
+    }
   System.out.println("Iterativo Dinamico");
       for(int i = 0 ; i<=n ; i++){
        fibited.doititeradina(4);
@@ -388,6 +392,13 @@ double[] tiemposrecd = new double[n+1];
        
         g1.agregarSerie(tiemposrecd, "Recursivo Dinamico");
 
-        g1.creaYmuestraGrafica();
+        g1.creaYmuestraGrafica();*/
+
+AlgoritmoDijkstra aux;
+        for (int x=0 ; x < 5;x++){
+        aux = new AlgoritmoDijkstra(5);
+        Camino c = aux.buscarCamino(x);
+        System.out.println("Ci= "+x+" Distancia Total: "+c.getDistanciaRecorrida());
     }
+}
 }
