@@ -34,7 +34,6 @@ public class Camino {
             
         int cUltima = this.getCamino().getLast();
      this.getCamino().add(numCiudad);
-     // reecalcular la distancia total recorrida
      this.distanciaRecorrida += this.md[cUltima][numCiudad];
         
         
@@ -43,23 +42,17 @@ public class Camino {
         
     }
 
-    /**
-     * @return the distanciaRecorrida
-     */
+ 
     public int getDistanciaRecorrida() {
         return distanciaRecorrida;
     }
 
-    /**
-     * @return the camino
-     */
+
     public LinkedList<Integer> getCamino() {
         return camino;
     }
 
-    /**
-     * @param camino the camino to set
-     */
+
     public void setCamino(LinkedList<Integer> camino) {
         this.camino = camino;
     }

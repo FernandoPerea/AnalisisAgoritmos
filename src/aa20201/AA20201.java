@@ -9,6 +9,11 @@ import Fibonacci.Fibonacci;
 import Grafcas.GraficaTiempo;
 import TSP.AlgoritmoDijkstra;
 import TSP.Camino;
+import java.io.IOException;
+import java.util.ArrayList;
+import mochila.Articulo;
+import mochila.LeerDatos;
+import mochila.MochilaDinamica;
 
 /**
  *
@@ -19,10 +24,10 @@ public class AA20201 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
 
-        int n = 10000;
+     //   int n = 10000;
 
      /*   double[] tiemposbmej = new double[n];
         double[] tiemposbmed = new double[n];
@@ -394,11 +399,16 @@ double[] tiemposrecd = new double[n+1];
 
         g1.creaYmuestraGrafica();*/
 
-AlgoritmoDijkstra aux;
+/*AlgoritmoDijkstra aux;
         for (int x=0 ; x < 5;x++){
         aux = new AlgoritmoDijkstra(5);
         Camino c = aux.buscarCamino(x);
-        System.out.println("Ci= "+x+" Distancia Total: "+c.getDistanciaRecorrida());
-    }
+        System.out.println("Ci= "+x+" Distancia Total: "+c.getDistanciaRecorrida()+" El camino fue: "+c.getCamino());
+    }*/
+
+ ArrayList<Articulo> articulos = LeerDatos.tokenizarDataSet();
+ MochilaDinamica md = new MochilaDinamica(articulos,15);
+         md.imprimirArticulos();
+        md.buscarSolucion();
 }
 }
