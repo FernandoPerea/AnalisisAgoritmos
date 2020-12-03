@@ -410,5 +410,6 @@ double[] tiemposrecd = new double[n+1];
  MochilaDinamica md = new MochilaDinamica(articulos,15);
          md.imprimirArticulos();
         md.buscarSolucion();
+        md.CUPO();
 }
 }

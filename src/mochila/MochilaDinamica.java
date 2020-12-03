@@ -88,11 +88,36 @@ public class MochilaDinamica {
             }
             System.out.println();
         }
+        
+    
+
+        }
+     public void CUPO(){
+         
+         int i=this.articulos.size();
+         int j=this._W;
+         int cont = 0;
+         
+         System.out.println("El valor máximo que puede llevar es:"+mBeneficios[i][j]+"\nLos articuos agregados son:");
+       while(i >0 && j>0){
+              if(this.mBeneficios[i][j] != this.mBeneficios[i-1][j] ){
+              this.artSolucion.add(this.articulos.get(i));
+               System.out.println("Art# "+i+" con peso : "+this.artSolucion.get(cont).getPeso()+" y valor : "+this.artSolucion.get(cont).getValor());
+              i=i-1;
+              j=j-this.articulos.get(i).getPeso();
+              cont++;
+              }
+              else{
+              i=i-1;
+              }
+            }
+
+       
+     }
 
 
-    }
 
-   
 
+    
     
 }
