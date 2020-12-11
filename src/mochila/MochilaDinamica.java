@@ -18,7 +18,6 @@ public class MochilaDinamica {
     private ArrayList<Articulo> artSolucion;
     private int[][] mBeneficios;
     private int _W;
-    private int maxBenefit;
 
     public MochilaDinamica(ArrayList<Articulo> articulos, int _W) { //Constructor de la clase con el tamaño _W y los articulos
         this.articulos = articulos;
@@ -36,14 +35,14 @@ public class MochilaDinamica {
     }
     private void generadorMatriz() {
 
-        this.mBeneficios = new int[this.articulos.size() + 1][this._W + 1]; // construimos la matriz de beneficios 
+        this.mBeneficios = new int[this.articulos.size() + 1][this._W + 1]; 
 
-        for (int i = 0; i <= this.articulos.size(); i++) // agregar en la primer columna puros ceros
+        for (int i = 0; i <= this.articulos.size(); i++) 
         {
             this.mBeneficios[i][0] = 0;
         }
 
-        for (int x = 0; x <= this._W; x++) // agregar en la primer fila puros ceros
+        for (int x = 0; x <= this._W; x++) 
         {
             this.mBeneficios[0][x] = 0;
         }
@@ -55,32 +54,29 @@ public class MochilaDinamica {
         for (int i = 1; i <= this.articulos.size(); i++) {
             for (int w = 0; w <= this._W; w++) {
 
-                if (this.articulos.get(i - 1).getPeso() <= w) {  //Validar que el articulos tenga espacio en la mochila
+                if (this.articulos.get(i - 1).getPeso() <= w) {  
 
-                    if ((this.articulos.get(i - 1).getValor() + this.mBeneficios[i - 1][w - this.articulos.get(i - 1).getPeso()]) > this.mBeneficios[i - 1][w]) ////Sumamos el valor del articulo y el beneficio maximo anterior y compararlo a ver si es mayor al anterior
+                    if ((this.articulos.get(i - 1).getValor() + this.mBeneficios[i - 1][w - this.articulos.get(i - 1).getPeso()]) > this.mBeneficios[i - 1][w]) 
                             {
-                        this.mBeneficios[i][w] = (int) this.articulos.get(i - 1).getValor() + this.mBeneficios[i - 1][w - this.articulos.get(i - 1).getPeso()]; //remplazamos el nuevo mejor beneficio
+                        this.mBeneficios[i][w] = (int) this.articulos.get(i - 1).getValor() + this.mBeneficios[i - 1][w - this.articulos.get(i - 1).getPeso()]; 
 
                     } else {
 
-                        this.mBeneficios[i][w] = this.mBeneficios[i - 1][w]; //mantenemos el anterior mejor beneficio
+                        this.mBeneficios[i][w] = this.mBeneficios[i - 1][w]; 
 
                     }
 
                 } else {
-                    this.mBeneficios[i][w] = this.mBeneficios[i - 1][w];  //mantenemos el anterior mejor beneficio
+                    this.mBeneficios[i][w] = this.mBeneficios[i - 1][w]; 
                 }
 
             }
         }
 
-        this.maxBenefit = (int) this.mBeneficios[articulos.size()][_W]; //regresamos el beneficio maximo
         this.artSolucion = new ArrayList<>();
 
         int i = this.articulos.size();
         int j = this._W;
-        int pesoT = 0;
-        //Imprimimos la matriz resuelta
         System.out.println("Matriz de Beneficios");
         for (int k = 0; k < i + 1; k++) {
             for (int l = 0; l < j + 1; l++) {
