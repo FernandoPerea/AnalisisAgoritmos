@@ -19,6 +19,14 @@ public class MochilaDinamica {
     private int[][] mBeneficios;
     private int _W;
 
+    public int getW() {
+        return _W;
+    }
+
+    public void setW(int _W) {
+        this._W = _W;
+    }
+
     public MochilaDinamica(ArrayList<Articulo> articulos, int _W) { //Constructor de la clase con el tamaño _W y los articulos
         this.articulos = articulos;
         this._W = _W;
@@ -73,9 +81,9 @@ public class MochilaDinamica {
             }
         }
 
-        this.artSolucion = new ArrayList<>();
+       this.artSolucion = new ArrayList<>();
 
-        int i = this.articulos.size();
+       /* int i = this.articulos.size();
         int j = this._W;
         System.out.println("Matriz de Beneficios");
         for (int k = 0; k < i + 1; k++) {
@@ -83,7 +91,7 @@ public class MochilaDinamica {
                 System.out.print(this.mBeneficios[k][l] + ", ");
             }
             System.out.println();
-        }
+        }*/
         
     
 
@@ -93,12 +101,17 @@ public class MochilaDinamica {
          int i=this.articulos.size();
          int j=this._W;
          int cont = 0;
-         
+         System.out.println("\nEl peso máximo que puede llevar es:"+this._W);
          System.out.println("El valor máximo que puede llevar es:"+mBeneficios[i][j]+"\nLos articuos agregados son:");
        while(i >0 && j>0){
               if(this.mBeneficios[i][j] != this.mBeneficios[i-1][j] ){
               this.artSolucion.add(this.articulos.get(i-1));
-               System.out.println("Art# "+(i-1)+" con peso : "+this.artSolucion.get(cont).getPeso()+" y valor : "+this.artSolucion.get(cont).getValor());
+              
+               System.out.println(" | Art# "+(i-1)+" con peso : "+this.artSolucion.get(cont).getPeso()+" y valor : "+this.artSolucion.get(cont).getValor());
+            /* if (cont%2 != 0 || cont ==0) { 
+              System.out.println();   
+                System.out.print(" | Art# "+(i-1)+" con peso : "+this.artSolucion.get(cont).getPeso()+" y valor : "+this.artSolucion.get(cont).getValor());
+             }*/
               i=i-1;
               j=j-this.articulos.get(i).getPeso();
               cont++;

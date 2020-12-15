@@ -407,8 +407,24 @@ double[] tiemposrecd = new double[n+1];
     }*/
 
  ArrayList<Articulo> articulos = LeerDatos.tokenizarDataSet();
- MochilaDinamica md = new MochilaDinamica(articulos,15);
-         md.imprimirArticulos();
+ MochilaDinamica md = new MochilaDinamica(articulos,1000);
+        md.imprimirArticulos();
+        md.setW(50);
+        md.buscarSolucion();
+        md.CUPO();
+        md.setW(100);
+        md.buscarSolucion();
+        md.CUPO();
+        md.setW(250);
+        md.buscarSolucion();
+        md.CUPO();
+        md.setW(300);
+        md.buscarSolucion();
+        md.CUPO();
+        md.setW(450);
+        md.buscarSolucion();
+        md.CUPO();
+        md.setW(500);
         md.buscarSolucion();
         md.CUPO();
 }

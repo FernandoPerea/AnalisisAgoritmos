@@ -62,7 +62,7 @@ public class LeerDatos {
                         vector[x] = Integer.parseInt(lista2.get(x));
                     }
                                            
-                           patrones.add(new Articulo(vector[0],vector[1]));
+                           patrones.add(new Articulo(vector[1],vector[0]));
                         
                     lista2.clear();
                 }
