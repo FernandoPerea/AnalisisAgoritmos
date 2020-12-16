@@ -7,6 +7,7 @@ package aa20201;
 
 import Fibonacci.Fibonacci;
 import Grafcas.GraficaTiempo;
+import SaltoCaballo.Caballito;
 import TSP.AlgoritmoDijkstra;
 import TSP.Camino;
 import java.io.IOException;
@@ -406,7 +407,7 @@ double[] tiemposrecd = new double[n+1];
         System.out.println("Ci= "+x+" Distancia Total: "+c.getDistanciaRecorrida()+" El camino fue: "+c.getCamino());
     }*/
 
- ArrayList<Articulo> articulos = LeerDatos.tokenizarDataSet();
+ /*ArrayList<Articulo> articulos = LeerDatos.tokenizarDataSet();
  MochilaDinamica md = new MochilaDinamica(articulos,1000);
         md.imprimirArticulos();
         md.setW(50);
@@ -426,6 +427,10 @@ double[] tiemposrecd = new double[n+1];
         md.CUPO();
         md.setW(500);
         md.buscarSolucion();
-        md.CUPO();
+        md.CUPO();*/
+ 
+ 
+ Caballito c = new Caballito(8,4,4);
+ c.recorrido();
 }
 }
