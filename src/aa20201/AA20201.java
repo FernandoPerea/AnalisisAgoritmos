@@ -430,7 +430,9 @@ double[] tiemposrecd = new double[n+1];
         md.CUPO();*/
  
  
- Caballito c = new Caballito(8,4,4);
+ Caballito c = new Caballito(8,7,7);
  c.recorrido();
+ System.out.println("Recorrido en el tablero");
+ c.imprimirtablero();
 }
 }
