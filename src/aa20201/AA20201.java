@@ -10,6 +10,7 @@ import Grafcas.GraficaTiempo;
 import SaltoCaballo.Caballito;
 import TSP.AlgoritmoDijkstra;
 import TSP.Camino;
+import cambioMon.camMonedas;
 import java.io.IOException;
 import java.util.ArrayList;
 import mochila.Articulo;
@@ -421,7 +422,7 @@ double[] tiemposrecd = new double[n+1];
         md.CUPO();
         md.setW(300);
         md.buscarSolucion();
-        md.CUPO();
+    md.CUPO();
         md.setW(450);
         md.buscarSolucion();
         md.CUPO();
@@ -429,10 +430,18 @@ double[] tiemposrecd = new double[n+1];
         md.buscarSolucion();
         md.CUPO();*/
  
- 
- Caballito c = new Caballito(8,7,7);
+ /*
+ Caballito c = new Caballito(30,15,15);
  c.recorrido();
  System.out.println("Recorrido en el tablero");
- c.imprimirtablero();
+ c.imprimirtablero();*/
+   
+ int dinero = 53;
+ int[] monedas = {1,2,5,10,200,500,1000};
+       
+        camMonedas c = new camMonedas(dinero, monedas);
+ c.imprimir();
+        
+    
 }
 }
